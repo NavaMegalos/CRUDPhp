@@ -17,9 +17,9 @@
     <main class="
         bg-white w-75 mx-auto p-3 text-white border rounded
     ">
-        <h2 class="text-dark h5 p-2 m-2 fw-normal">Agregar Usuario</h1>
+        <h2 class="text-dark h5 p-2 m-2 fw-normal">Agregar Usuario</h2>
 
-        <form method="GET" action="undefined" class="w-75 mx-auto mt-5 mb-5">
+        <form method="GET" action="../controlador/UsuarioController.php" class="w-75 mx-auto mt-5 mb-5">
             <div class="mb-3">
                 <label class="form-label text-dark">Nombre</label>
                 <input type="text" class="form-control" id="Nombre" name="nombre">
@@ -38,12 +38,12 @@
             </div>
 
             <div class="mb-3 text-center mt-5">
-                <button type="submit" class="btn btn-outline-primary ">Agregar Usuario</button>
+                <button type="submit" name="alta_formulario" class="btn btn-outline-primary ">Agregar Usuario</button>
             </div>
         </form>
 
         <div class="w-50">
-            <a href="../index.php"  class="btn btn-outline-primary mb-3 w-25 p-1 d-block m-2">Regresar a Inicio</a>
+            <a href="../index.php" class="btn btn-outline-primary mb-3 w-25 p-1 d-block m-2">Regresar a Inicio</a>
         </div>
 
     </main>

@@ -1,2 +1,2 @@
 <?php
-    include_once('./vistas/comun/master.php');
+include_once('./vistas/comun/master.php');

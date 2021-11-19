@@ -1,3 +1,12 @@
+<?php
+
+//include '../PDO/Conexion.php';
+//use \PDO\Conexion;
+//
+//$conexion = new Conexion();
+//$conn = $conexion->obtenerConexion();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +27,7 @@
     <main class="
         bg-white w-75 mx-auto p-3 text-white border rounded
     ">
-        <h2 class="text-dark h5 p-2 m-2 fw-normal">Visualizar Usuario</h1>
+        <h2 class="text-dark h5 p-2 m-2 fw-normal">Visualizar Usuario</h2>
 
         <table class="table table-hover w-75 mx-auto mt-5 mb-5">
             <thead>
@@ -59,13 +68,14 @@
                     <td>Lopez</td>
                     <td>Tecnico</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Antonia</td>
-                    <td>Lopez</td>
-                    <td>Lopez</td>
-                    <td>Tecnico</td>
-                </tr>
+                <!-- // echo "<tr>
+                //     <td>$usuario->id</td>
+                //     <td>$usuario->nombre</td>
+                //     <td>$usuario->apellido_paterno</td>
+                //     <td>$usuario->apellido_materno</td>
+                //     <td>$usuario->cargo</td>
+                // </tr>"
+                // }?> -->
             </tbody>
         </table>
 
