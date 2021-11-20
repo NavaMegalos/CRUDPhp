@@ -1,10 +1,11 @@
 <?php
 
-//include '../PDO/Conexion.php';
-//use \PDO\Conexion;
-//
-//$conexion = new Conexion();
-//$conn = $conexion->obtenerConexion();
+include '../PDO/Conexion.php';
+use \PDO\Conexion;
+
+$conexion = new Conexion();
+$conn = $conexion->obtener_conexion();
+$sql = $conn->query("SELECT * FROM usuarios");
 
 ?>
 <!DOCTYPE html>
@@ -40,42 +41,35 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Cristobal</td>
-                    <td>Hernandez</td>
-                    <td>Gallegos</td>
-                    <td>Operador</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Antonia</td>
-                    <td>Lopez</td>
-                    <td>Lopez</td>
-                    <td>Tecnico</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Antonia</td>
-                    <td>Lopez</td>
-                    <td>Lopez</td>
-                    <td>Tecnico</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Antonia</td>
-                    <td>Lopez</td>
-                    <td>Lopez</td>
-                    <td>Tecnico</td>
-                </tr>
-                <!-- // echo "<tr>
-                //     <td>$usuario->id</td>
-                //     <td>$usuario->nombre</td>
-                //     <td>$usuario->apellido_paterno</td>
-                //     <td>$usuario->apellido_materno</td>
-                //     <td>$usuario->cargo</td>
-                // </tr>"
-                // }?> -->
+                <?php
+                try{
+
+                    $resultados = $sql->fetchAll();
+
+                    if($resultados > 0) {
+                        foreach ($resultados as $resultado) {
+                            echo "<tr>
+                         <td>$resultado[id]</td>
+                         <td>$resultado[nombre]</td>
+                         <td>$resultado[apellido_paterno]</td>
+                         <td>$resultado[apellido_materno]</td>
+                         <td>$resultado[cargo]</td>
+                    </tr>";
+                        }
+                    }
+                    if($resultados == null) {
+                        echo "<tr>
+                         <td>1</td>
+                         <td>Emilio</td>
+                         <td>Perales</td>
+                         <td>Limon</td>
+                         <td>Asistente</td>
+                    </tr>";
+                    }
+                }catch (Exception $e) {
+                    echo $e;
+                }
+                ?>
             </tbody>
         </table>
 

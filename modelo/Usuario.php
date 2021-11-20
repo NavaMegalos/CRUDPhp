@@ -15,30 +15,8 @@
             $this->apellido_materno = $apellido_materno; 
             $this->cargo = $cargo;
             $conexion = new Conexion();
-            $this->conn = $conexion->obtener_onexion();
+            $this->conn = $conexion->obtener_conexion();
         }
-
-         public function __construct1($nombre) {
-             $this->nombre = $nombre;
-         }
-
-         public function __construct2($apellido_paterno, $apellido_materno) {
-             $this->apellido_paterno = $apellido_paterno;
-             $this->apellido_materno = $apellido_materno;
-         }
-
-
-         public function __construct3($apellido_materno) {
-            $this->apellido_paterno = $apellido_materno;
-         }
-
-        public function __construct4($apellido_paterno) {
-            $this->apellido_paterno = $apellido_paterno;
-        }
-
-        public function __construct5($cargo) {
-             $this->cargo = $cargo;
-         }
 
         function agregar_usuario() {
             $data = array(
@@ -47,6 +25,7 @@
                 $this->apellido_materno,
                 $this->cargo,
             );
+
             try {
                 $sql = $this->conn->prepare("INSERT INTO usuarios (nombre, apellido_paterno, apellido_materno, cargo) 
                     VALUES(?, ?, ?, ?);");
@@ -68,20 +47,22 @@
         }
 
         public function modificar_usuario ($id) {
+            echo $this->cargo;
             try{
-                $sql = $this->conn->prepare("UPDATE usuarios WHERE id = $id "); //CONDICION EJEMPLO "WHERE id=1"
-                $sql->execute();
-                return true;
+                $sql = "UPDATE usuarios 
+                        SET nombre=?, apellido_paterno=?, apellido_materno=?, cargo=? 
+                        WHERE id=?"; //CONDICION EJEMPLO "WHERE id=1"
+                $this->conn->prepare($sql)->execute([$this->nombre, $this->apellido_paterno, $this->apellido_materno, $this->cargo, $id]);
+                echo "despues de..";
             }catch(Exception $e) {
                 echo $e;
             }
         }
 
-        public function eliminar_usuario($id, $array) {
+        public function eliminar_usuario($id) {
             try{
-                $sql = $this->conn->prepare("UPDATE usuarios WHERE id = $id "); //CONDICION EJEMPLO "WHERE id=1"
+                $sql = $this->conn->prepare("DELETE FROM usuarios WHERE id = $id ");
                 $sql->execute();
-                return true;
             }catch(Exception $e) {
                 echo $e;
             }

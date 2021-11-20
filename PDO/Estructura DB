@@ -1,0 +1,9 @@
+CREATE DATABASE CONEXION.PHP
+
+CREATE TABLE usuarios (
+    id SMALLINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(25) NOT NULL,
+    apellido_paterno VARCHAR(25) NOT NULL,
+    apellido_materno VARCHAR(25) NOT NULL,
+    cargo VARCHAR(25) NOT NULL
+);

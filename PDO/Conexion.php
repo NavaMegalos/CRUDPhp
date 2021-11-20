@@ -23,11 +23,8 @@ class Conexion
         }
     }
 
-    public function obtener_onexion() {
+    public function obtener_conexion() {
         return $this->conn;
     }
 
-//    public function cerrarConexion() {
-//        die($this->conn);
-//    }
 }
